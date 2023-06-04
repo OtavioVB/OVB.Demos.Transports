@@ -15,7 +15,6 @@
     <Folder Include="Bussines\OperatorPhoneContext\" />
     <Folder Include="Bussines\OperatorAuthContext\" />
     <Folder Include="Bussines\OperatorContext\" />
-    <Folder Include="Bussines\OwnerAuthenticationContext\" />
   </ItemGroup>
 
   <ItemGroup>

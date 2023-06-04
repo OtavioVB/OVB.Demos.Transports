@@ -10,6 +10,7 @@ namespace OVB.Demos.Transports.CompanyContext.Infrascructure.EntityFrameworkCore
 public sealed class CompanyDataContext : EntityFrameworkDataContextBase
 {
     public DbSet<Company> Companies { get; set; }
+
     public DbSet<OwnerPhone> OwnerPhones { get; set; }
     public DbSet<Owner> Owners { get; set; }
     public DbSet<OwnerAuthentication> OwnerAuthentication { get; set; }
