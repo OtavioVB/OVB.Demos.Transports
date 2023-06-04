@@ -35,4 +35,22 @@ public static class DataTransferObjectBase
         public Guid CorrelationIdentifier { get; set; }
         public string SourcePlatform { get; set; }
     }
+
+    public abstract class All
+    {
+        protected All(Guid identifier, Guid correlationIdentifier, string sourcePlatform, DateTime createdAt, DateTime updatedAt)
+        {
+            Identifier = identifier;
+            CorrelationIdentifier = correlationIdentifier;
+            SourcePlatform = sourcePlatform;
+            CreatedAt = createdAt;
+            UpdatedAt = updatedAt;
+        }
+
+        public Guid Identifier { get; set; }
+        public Guid CorrelationIdentifier { get; set; }
+        public string SourcePlatform { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+    }
 }

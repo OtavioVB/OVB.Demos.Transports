@@ -1,19 +1,18 @@
-﻿namespace OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.DataTransferObject;
+﻿using OVB.Demos.Libraries.Domain;
 
-public sealed class Company
+namespace OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.DataTransferObject;
+
+public sealed class Company : DataTransferObjectBase.All
 {
-    public Company(Guid identifier, Guid correlationIdentifier, string sourcePlatform, string platformName, string nameReally)
+    public Company(Guid identifier, Guid correlationIdentifier, string sourcePlatform, string platformName, string nameReally, string cryptographyPrivateKey, 
+        DateTime updatedAt, DateTime createdAt) : base(identifier, correlationIdentifier, sourcePlatform, createdAt, updatedAt)
     {
-        Identifier = identifier;
-        CorrelationIdentifier = correlationIdentifier;
-        SourcePlatform = sourcePlatform;
+        CryptographyPrivateKey = cryptographyPrivateKey;
         PlatformName = platformName;
         NameReally = nameReally;
     }
 
-    public Guid Identifier { get; set; }
-    public Guid CorrelationIdentifier { get; set; }
-    public string SourcePlatform { get; set; }
     public string PlatformName { get; set; }
     public string NameReally { get; set; }
+    public string CryptographyPrivateKey { get; set; }
 }
