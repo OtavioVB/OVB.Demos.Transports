@@ -15,4 +15,7 @@ public sealed class Company : DataTransferObjectBase.All
     public string PlatformName { get; set; }
     public string NameReally { get; set; }
     public string CryptographyPrivateKey { get; set; }
+
+    public static Company Empty { get; set; } = new Company(Guid.Empty, Guid.Empty, string.Empty, string.Empty, string.Empty, string.Empty, DateTime.UnixEpoch,
+        DateTime.UnixEpoch);
 }

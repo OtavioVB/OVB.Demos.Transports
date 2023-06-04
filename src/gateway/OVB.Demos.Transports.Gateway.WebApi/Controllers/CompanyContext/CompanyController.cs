@@ -7,7 +7,7 @@ using System.Net.Mime;
 namespace OVB.Demos.Transports.Gateway.WebApi.Controllers.CompanyContext;
 
 [ApiVersion("1")]
-[Route("api/gateway/v1/management/[controller]")]
+[Route("api/gateway/v{version:apiVersion}/management/[controller]")]
 [ApiController]
 public sealed class CompanyController : ControllerBase
 {
