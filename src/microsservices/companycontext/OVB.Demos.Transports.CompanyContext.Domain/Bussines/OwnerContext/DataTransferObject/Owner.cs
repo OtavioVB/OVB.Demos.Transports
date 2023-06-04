@@ -14,7 +14,6 @@ public sealed class Owner : DataTransferObjectBase.All
         OwnerPhones = ownerPhones;
     }
 
-
     public string Name { get; set; }
     public string LastName { get; set; }
     public string Country { get; set; }

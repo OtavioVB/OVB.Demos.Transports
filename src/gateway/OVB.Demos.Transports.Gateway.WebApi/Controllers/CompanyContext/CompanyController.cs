@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OVB.Demos.Transports.Gateway.WebApi.Controllers.CompanyContext.Payloads;
 using System.Net.Mime;
 
-namespace OVB.Demos.Transports.Gateway.WebApi.Controllers;
+namespace OVB.Demos.Transports.Gateway.WebApi.Controllers.CompanyContext;
 
 [ApiVersion("1")]
 [Route("api/gateway/v1/management/[controller]")]
@@ -20,7 +21,8 @@ public sealed class CompanyController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(string))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
     [AllowAnonymous]
-    public async Task<IActionResult> CreateAsync(CancellationToken cancellationToken)
+    public async Task<IActionResult> CreateAsync(
+        CancellationToken cancellationToken)
     {
         throw new Exception();
     }
@@ -35,7 +37,10 @@ public sealed class CompanyController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(string))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
     [AllowAnonymous]
-    public async Task<IActionResult> BatchImportAsync(CancellationToken cancellationToken)
+    public async Task<IActionResult> BatchImportCompaniesAsync(
+        [FromHeader] string sourcePlatform,
+        [FromBody] BatchImportCompaniesPayloadInput input,   
+        CancellationToken cancellationToken)
     {
         throw new Exception();
     }
