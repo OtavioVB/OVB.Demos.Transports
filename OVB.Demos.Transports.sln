@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{466A62C0-60DF-48DE-9895-CE1A599B5D71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.CompanyContext.WebGrpc", "src\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.WebGrpc\OVB.Demos.Transports.CompanyContext.WebGrpc.csproj", "{E71ACDCC-A7F8-44DE-81CF-1DFB3A1E9C3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{6BCEEBE8-8BA4-47A3-B14A-5772AC79D9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BCEEBE8-8BA4-47A3-B14A-5772AC79D9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BCEEBE8-8BA4-47A3-B14A-5772AC79D9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E71ACDCC-A7F8-44DE-81CF-1DFB3A1E9C3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E71ACDCC-A7F8-44DE-81CF-1DFB3A1E9C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E71ACDCC-A7F8-44DE-81CF-1DFB3A1E9C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E71ACDCC-A7F8-44DE-81CF-1DFB3A1E9C3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{6BCEEBE8-8BA4-47A3-B14A-5772AC79D9DD} = {CEFBD9CE-7957-410B-936A-94C421C30909}
 		{63654934-D64B-4077-B507-6BE71465F8FE} = {6FF2B839-0F9C-400A-BB95-0FD7BE184571}
 		{A5EACB9F-F57D-4AE0-998B-89E0B191BD95} = {6FF2B839-0F9C-400A-BB95-0FD7BE184571}
+		{E71ACDCC-A7F8-44DE-81CF-1DFB3A1E9C3F} = {63654934-D64B-4077-B507-6BE71465F8FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {705729DF-3C54-456A-AFEE-77A76E5F9727}
