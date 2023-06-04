@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tsts", "tsts", "{6E92FF05-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gateway", "gateway", "{CEFBD9CE-7957-410B-936A-94C421C30909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.Gateway.WebApi", "src\gateway\OVB.Demos.Transports.Gateway.WebApi\OVB.Demos.Transports.Gateway.WebApi.csproj", "{6BCEEBE8-8BA4-47A3-B14A-5772AC79D9DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Transports.Gateway.WebApi", "src\gateway\OVB.Demos.Transports.Gateway.WebApi\OVB.Demos.Transports.Gateway.WebApi.csproj", "{6BCEEBE8-8BA4-47A3-B14A-5772AC79D9DD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "microsservices", "microsservices", "{63654934-D64B-4077-B507-6BE71465F8FE}"
 EndProject
@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentat
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{466A62C0-60DF-48DE-9895-CE1A599B5D71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
