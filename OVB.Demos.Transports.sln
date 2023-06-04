@@ -11,6 +11,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gateway", "gateway", "{CEFB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.Gateway.WebApi", "src\gateway\OVB.Demos.Transports.Gateway.WebApi\OVB.Demos.Transports.Gateway.WebApi.csproj", "{6BCEEBE8-8BA4-47A3-B14A-5772AC79D9DD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "microsservices", "microsservices", "{63654934-D64B-4077-B507-6BE71465F8FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "frontend", "frontend", "{A5EACB9F-F57D-4AE0-998B-89E0B191BD95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devops", "devops", "{F9E1968D-219B-4B74-9953-F0129D79507E}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{6726521E-527F-468C-9DE7-55EB5B5E9EB5}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +42,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CEFBD9CE-7957-410B-936A-94C421C30909} = {6FF2B839-0F9C-400A-BB95-0FD7BE184571}
 		{6BCEEBE8-8BA4-47A3-B14A-5772AC79D9DD} = {CEFBD9CE-7957-410B-936A-94C421C30909}
+		{63654934-D64B-4077-B507-6BE71465F8FE} = {6FF2B839-0F9C-400A-BB95-0FD7BE184571}
+		{A5EACB9F-F57D-4AE0-998B-89E0B191BD95} = {6FF2B839-0F9C-400A-BB95-0FD7BE184571}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {705729DF-3C54-456A-AFEE-77A76E5F9727}
