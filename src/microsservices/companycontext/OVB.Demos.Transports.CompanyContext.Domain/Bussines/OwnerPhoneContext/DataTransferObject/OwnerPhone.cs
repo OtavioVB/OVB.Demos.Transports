@@ -1,4 +1,5 @@
 ﻿using OVB.Demos.Libraries.Domain;
+using OVB.Demos.Transports.CompanyContext.Domain.Bussines.OwnerContext.DataTransferObject;
 
 namespace OVB.Demos.Transports.CompanyContext.Domain.Bussines.OwnerPhoneContext.DataTransferObject;
 
@@ -11,7 +12,18 @@ public sealed class OwnerPhone : DataTransferObjectBase.Default
         Number = number;
     }
 
+    #region Properties
+
     public string Ddi { get; set; }
     public string Dd { get; set; }
-    public string Number { get; init; }
+    public string Number { get; set; }
+
+    #endregion
+
+    #region Relationships
+
+    public Guid? OwnerIdentifier { get; set; }
+    public Owner? Owner { get; set; }
+
+    #endregion
 }
