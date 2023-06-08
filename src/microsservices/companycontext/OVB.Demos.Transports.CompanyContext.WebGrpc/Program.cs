@@ -11,7 +11,7 @@ public static class Program
         builder.Services.AddGrpc();
 
         #region Infrascructure Configuration
-        builder.Services.AddMicrosservicesCompanyContextInfrascructureDependenciesConfiguration();
+        builder.Services.AddMicrosservicesCompanyContextInfrascructureDependenciesConfiguration("User Id=admin;Password=1234;Server=localhost;Port=5432;Database=transportsmaintransactionscompany");
         #endregion
 
         var app = builder.Build();

@@ -1,4 +1,6 @@
-﻿namespace OVB.Demos.Transports.Responses;
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace OVB.Demos.Transports.Responses;
 
 public sealed class ResponseBase<TSuccessfullResponse>
 {
@@ -53,6 +55,20 @@ public sealed class ResponseBase<TSuccessfullResponse>
             throw new Exception(ResponseNull);
 
         return (ErrorResponse)ErrorResponse;
+    }
+
+    public static ResponseBase<TSuccessfullResponse> BuildErrorResponse(ErrorResponse error)
+    {
+        var response = new ResponseBase<TSuccessfullResponse>();
+        response.SetErrorResponse(error);
+        return response;
+    }
+
+    public static ResponseBase<TSuccessfullResponse> BuildSuccessfullResponse(TSuccessfullResponse successfullResponse)
+    {
+        var response = new ResponseBase<TSuccessfullResponse>();
+        response.SetSuccessfullResponse(successfullResponse);
+        return response;
     }
 }
 

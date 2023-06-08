@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OVB.Demos.Transports.CompanyContext.Infrascructure.EntityFrameworkCore.Repositories.Base.Interfaces;
 
 namespace OVB.Demos.Transports.CompanyContext.Infrascructure.EntityFrameworkCore.Repositories.Base;
 
-public abstract class BaseRepository<TEntity> where TEntity : class
+public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
+    where TEntity : class
 {
     protected CompanyDataContext _dataContext;
 
