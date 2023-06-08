@@ -12,12 +12,13 @@
 
   <ItemGroup>
     <Folder Include="Services\External\" />
-    <Folder Include="Services\Internal\CompanyContext\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\libs\OVB.Demos.Libraries.Application\OVB.Demos.Libraries.Application.csproj" />
     <ProjectReference Include="..\..\..\..\libs\OVB.Demos.Transports.Responses\OVB.Demos.Transports.Responses.csproj" />
+    <ProjectReference Include="..\OVB.Demos.Transports.CompanyContext.Domain\OVB.Demos.Transports.CompanyContext.Domain.csproj" />
+    <ProjectReference Include="..\OVB.Demos.Transports.CompanyContext.Infrascructure\OVB.Demos.Transports.CompanyContext.Infrascructure.csproj" />
   </ItemGroup>
 
 </Project>
