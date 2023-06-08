@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using OVB.Demos.Libraries.Protobuf.Serializator;
+using OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.DataTransferObject;
 using OVB.Demos.Transports.CompanyContext.Domain.Bussines.OwnerContext.DataTransferObject;
 
 namespace OVB.Demos.Transports.CompanyContext.Infrascructure.EntityFrameworkCore.Mappings;
@@ -34,6 +36,7 @@ public sealed class OwnerMapping : IEntityTypeConfiguration<Owner>
             .IsRequired(true)
             .IsFixedLength(false)
             .HasColumnName("OwnerDocuments")
+            .HasConversion(p => Serializator.SerializeProtobuf(p), p => Serializator.DeserializeProtobuf<OwnerDocument>(p))
             .HasColumnType("BINARY")
             .ValueGeneratedNever();
 

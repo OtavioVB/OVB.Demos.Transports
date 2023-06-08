@@ -1,11 +1,12 @@
 ﻿using OVB.Demos.Libraries.Domain;
 using OVB.Demos.Transports.CompanyContext.Domain.Bussines.OwnerContext.DataTransferObject;
+using ProtoBuf;
 
 namespace OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.DataTransferObject;
 
 public sealed class Company : DataTransferObjectBase.All
 {
-    public Company(Guid identifier, string documentType, string documentContent, CompanyDocument[] documents, string platformName, string nameReally,
+    public Company(Guid identifier, string documentType, string documentContent, CompanyDocument documents, string platformName, string nameReally,
         string language, string country, Guid correlationIdentifier, string sourcePlatform, DateTime createdAt, DateTime updatedAt) 
         : base(identifier, correlationIdentifier, sourcePlatform, createdAt, updatedAt)
     {
@@ -22,7 +23,7 @@ public sealed class Company : DataTransferObjectBase.All
 
     public string DocumentType { get; set; }
     public string DocumentContent { get; set; }
-    public CompanyDocument[] Documents { get; set; }
+    public CompanyDocument Documents { get; set; }
     public string PlatformName { get; set; }
     public string RealName { get; set; }
     public string Language { get; set; }
@@ -37,14 +38,14 @@ public sealed class Company : DataTransferObjectBase.All
     #endregion
 }
 
+[ProtoContract()]
 public sealed class CompanyDocument
 {
-    public CompanyDocument(string type, string content)
+    public CompanyDocument((string Type, string Content) documents)
     {
-        Type = type;
-        Content = content;
+        Documents = documents;  
     }
 
-    public string Type { get; set; }
-    public string Content { get; set; }
+    [ProtoMember(1)]
+    public (string Type, string Content) Documents { get; set; }
 }

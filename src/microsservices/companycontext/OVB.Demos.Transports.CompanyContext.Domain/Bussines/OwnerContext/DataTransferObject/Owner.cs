@@ -2,13 +2,14 @@
 using OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.DataTransferObject;
 using OVB.Demos.Transports.CompanyContext.Domain.Bussines.OwnerAuthenticationContext.DataTransferObject;
 using OVB.Demos.Transports.CompanyContext.Domain.Bussines.OwnerPhoneContext.DataTransferObject;
+using ProtoBuf;
 
 namespace OVB.Demos.Transports.CompanyContext.Domain.Bussines.OwnerContext.DataTransferObject;
 
 public sealed class Owner : DataTransferObjectBase.All
 {
     public Owner(Guid identifier, Guid correlationIdentifier, string sourcePlatform, string name, string lastName, string language, string country,
-        string documentType, string documentContent, OwnerDocument[] ownerDocuments, DateTime createdAt, DateTime updatedAt) 
+        string documentType, string documentContent, OwnerDocument ownerDocuments, DateTime createdAt, DateTime updatedAt) 
         : base(identifier, correlationIdentifier, sourcePlatform, createdAt, updatedAt)
     {
         OwnerDocuments = ownerDocuments;
@@ -24,7 +25,7 @@ public sealed class Owner : DataTransferObjectBase.All
 
     public string DocumentType { get; set; }
     public string DocumentContent { get; set; }
-    public OwnerDocument[] OwnerDocuments { get; set; }
+    public OwnerDocument OwnerDocuments { get; set; }
     public string Name { get; set; }
     public string LastName { get; set; }
     public string Language { get; set; }
@@ -44,14 +45,14 @@ public sealed class Owner : DataTransferObjectBase.All
     #endregion
 }
 
+[ProtoContract()]
 public sealed class OwnerDocument
 {
-    public OwnerDocument(string type, string content)
+    public OwnerDocument((string Type, string Content) documents)
     {
-        Type = type;
-        Content = content;
+        Documents = documents;
     }
 
-    public string Type { get; set; }
-    public string Content { get; set; }
+    [ProtoMember(1)]
+    public (string Type, string Content) Documents { get; set; }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using OVB.Demos.Libraries.Protobuf.Serializator;
 using OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.DataTransferObject;
 
 namespace OVB.Demos.Transports.CompanyContext.Infrascructure.EntityFrameworkCore.Mappings;
@@ -45,6 +46,7 @@ public sealed class CompanyMapping : IEntityTypeConfiguration<Company>
             .IsFixedLength(false)
             .HasColumnName("Documents")
             .HasColumnType("BINARY")
+            .HasConversion(p => Serializator.SerializeProtobuf(p), p => Serializator.DeserializeProtobuf<CompanyDocument>(p))
             .ValueGeneratedNever();
 
         builder.Property(p => p.DocumentType)
