@@ -12,14 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Bussines\OperatorPhoneContext\" />
-    <Folder Include="Bussines\OperatorAuthContext\" />
-    <Folder Include="Bussines\OperatorContext\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.5.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageReference Include="protobuf-net.Core" Version="3.2.26" />
   </ItemGroup>
 
 </Project>

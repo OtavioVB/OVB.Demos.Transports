@@ -42,7 +42,7 @@ public sealed class OwnerPhoneMapping : IEntityTypeConfiguration<OwnerPhone>
             .IsRequired(true)
             .IsFixedLength(true)
             .HasColumnType("CHAR")
-            .HasColumnName("Ddi")
+            .HasColumnName("Dd")
             .HasMaxLength(4)
             .ValueGeneratedNever();
 

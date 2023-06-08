@@ -6,14 +6,14 @@ namespace OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.Dat
 
 public sealed class Company : DataTransferObjectBase.All
 {
-    public Company(Guid identifier, string documentType, string documentContent, CompanyDocument documents, string platformName, string nameReally,
+    public Company(Guid identifier, string documentType, string documentContent, CompanyDocument documents, string platformName, string realName,
         string language, string country, Guid correlationIdentifier, string sourcePlatform, DateTime createdAt, DateTime updatedAt) 
         : base(identifier, correlationIdentifier, sourcePlatform, createdAt, updatedAt)
     {
         DocumentType = documentType;
         DocumentContent = documentContent;
         PlatformName = platformName;
-        RealName = nameReally;
+        RealName = realName;
         Language = language;
         Country = country;
         Documents = documents;

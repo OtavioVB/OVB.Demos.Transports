@@ -37,7 +37,7 @@ public sealed class OwnerMapping : IEntityTypeConfiguration<Owner>
             .IsFixedLength(false)
             .HasColumnName("OwnerDocuments")
             .HasConversion(p => Serializator.SerializeProtobuf(p), p => Serializator.DeserializeProtobuf<OwnerDocument>(p))
-            .HasColumnType("BINARY")
+            .HasColumnType("BYTEA")
             .ValueGeneratedNever();
 
         builder.Property(p => p.DocumentType)

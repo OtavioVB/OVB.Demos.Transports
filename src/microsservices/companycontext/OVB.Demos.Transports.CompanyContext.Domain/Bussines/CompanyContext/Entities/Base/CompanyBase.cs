@@ -1,5 +1,4 @@
-﻿using OVB.Demos.Libraries.Domain;
-using OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.DataTransferObject;
+﻿using OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.DataTransferObject;
 using static OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.ValueObjects.CompanyValueObjects;
 using static OVB.Demos.Libraries.Domain.DomainBase;
 using OVB.Demos.Libraries.Cryptography;
@@ -14,16 +13,11 @@ public abstract class CompanyBase : All
     protected PlatformName PlatformName { get; set; }
     protected PrivateKey CryptographyPrivateKey { get; set; }
 
-    protected Company Company { get; set; }
+    protected Company? Company { get; set; }
 
     #endregion
 
     #region Constructors
-
-    protected CompanyBase()
-    {
-        Company = Company.Empty;
-    }
 
     #endregion
 

@@ -45,7 +45,7 @@ public sealed class CompanyMapping : IEntityTypeConfiguration<Company>
             .IsRequired(true)
             .IsFixedLength(false)
             .HasColumnName("Documents")
-            .HasColumnType("BINARY")
+            .HasColumnType("BYTEA")
             .HasConversion(p => Serializator.SerializeProtobuf(p), p => Serializator.DeserializeProtobuf<CompanyDocument>(p))
             .ValueGeneratedNever();
 

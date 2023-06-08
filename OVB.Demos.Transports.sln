@@ -29,33 +29,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{466A62C0-6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "companycontext", "companycontext", "{BCCE0C7A-D7B7-4128-BFB9-6EE58A765608}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.CompanyContext.Infrascructure", "src\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.Infrascructure\OVB.Demos.Transports.CompanyContext.Infrascructure.csproj", "{3471449E-A793-44AB-80CE-26E04AD92750}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Transports.CompanyContext.Infrascructure", "src\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.Infrascructure\OVB.Demos.Transports.CompanyContext.Infrascructure.csproj", "{3471449E-A793-44AB-80CE-26E04AD92750}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.CompanyContext.Application", "src\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.Application\OVB.Demos.Transports.CompanyContext.Application.csproj", "{FA14DE94-8242-427D-AA33-81813E41FDD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Transports.CompanyContext.Application", "src\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.Application\OVB.Demos.Transports.CompanyContext.Application.csproj", "{FA14DE94-8242-427D-AA33-81813E41FDD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.CompanyContext.Domain", "src\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.Domain\OVB.Demos.Transports.CompanyContext.Domain.csproj", "{6B71BED3-3D9D-4BD0-81D7-5ADB4B77E33E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Transports.CompanyContext.Domain", "src\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.Domain\OVB.Demos.Transports.CompanyContext.Domain.csproj", "{6B71BED3-3D9D-4BD0-81D7-5ADB4B77E33E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "microsservices", "microsservices", "{573B9619-FC21-4E00-964E-034C9793EA51}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "companycontext", "companycontext", "{0364F410-1642-44A5-BC3B-086BFA360FF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.CompanyContext.IntegrationTests", "tsts\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.IntegrationTests\OVB.Demos.Transports.CompanyContext.IntegrationTests.csproj", "{7EA6053E-95ED-4198-939E-7A513B1C4C14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Transports.CompanyContext.IntegrationTests", "tsts\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.IntegrationTests\OVB.Demos.Transports.CompanyContext.IntegrationTests.csproj", "{7EA6053E-95ED-4198-939E-7A513B1C4C14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.CompanyContext.UnitTests", "tsts\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.UnitTests\OVB.Demos.Transports.CompanyContext.UnitTests.csproj", "{F8BCC789-3558-4D8A-A905-6E0A5BAD281F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Transports.CompanyContext.UnitTests", "tsts\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.UnitTests\OVB.Demos.Transports.CompanyContext.UnitTests.csproj", "{F8BCC789-3558-4D8A-A905-6E0A5BAD281F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Libraries.Domain", "libs\OVB.Demos.Libraries.Domain\OVB.Demos.Libraries.Domain.csproj", "{2F16915C-25AE-4EC8-A6D6-00663D3C2824}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Libraries.Domain", "libs\OVB.Demos.Libraries.Domain\OVB.Demos.Libraries.Domain.csproj", "{2F16915C-25AE-4EC8-A6D6-00663D3C2824}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Libraries.Cryptography", "libs\OVB.Demos.Libraries.Cryptography\OVB.Demos.Libraries.Cryptography.csproj", "{CA4601D3-C7D9-4BA6-8D5E-9292A8D9A7DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Libraries.Cryptography", "libs\OVB.Demos.Libraries.Cryptography\OVB.Demos.Libraries.Cryptography.csproj", "{CA4601D3-C7D9-4BA6-8D5E-9292A8D9A7DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Libraries.EntityFrameworkCore", "libs\OVB.Demos.Libraries.EntityFrameworkCore\OVB.Demos.Libraries.EntityFrameworkCore.csproj", "{A5D4525C-85A4-4018-BCAC-FF025401C92C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Transports.CompanyContext.WebGrpc", "src\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.WebGrpc\OVB.Demos.Transports.CompanyContext.WebGrpc.csproj", "{FA48C391-6392-4494-BC00-2DCE85059EAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.CompanyContext.WebGrpc", "src\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.WebGrpc\OVB.Demos.Transports.CompanyContext.WebGrpc.csproj", "{FA48C391-6392-4494-BC00-2DCE85059EAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Libraries.MongoDb", "libs\OVB.Demos.Libraries.MongoDb\OVB.Demos.Libraries.MongoDb.csproj", "{B5B9C955-13F8-4155-ADAE-BBC17BB200DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Libraries.MongoDb", "libs\OVB.Demos.Libraries.MongoDb\OVB.Demos.Libraries.MongoDb.csproj", "{B5B9C955-13F8-4155-ADAE-BBC17BB200DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Libraries.Application", "libs\OVB.Demos.Libraries.Application\OVB.Demos.Libraries.Application.csproj", "{0A59D7C0-8B88-46BE-9ED4-855E3C629C6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Libraries.Application", "libs\OVB.Demos.Libraries.Application\OVB.Demos.Libraries.Application.csproj", "{0A59D7C0-8B88-46BE-9ED4-855E3C629C6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Transports.Responses", "libs\OVB.Demos.Transports.Responses\OVB.Demos.Transports.Responses.csproj", "{9A163265-34C3-411C-9ACF-29286703252C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.Responses", "libs\OVB.Demos.Transports.Responses\OVB.Demos.Transports.Responses.csproj", "{9A163265-34C3-411C-9ACF-29286703252C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Libraries.Protobuf.Serializator", "libs\OVB.Demos.Libraries.Protobuf.Serializator\OVB.Demos.Libraries.Protobuf.Serializator.csproj", "{19E138A9-34C6-42A6-ACA5-A2AE597383C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,10 +95,6 @@ Global
 		{CA4601D3-C7D9-4BA6-8D5E-9292A8D9A7DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA4601D3-C7D9-4BA6-8D5E-9292A8D9A7DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA4601D3-C7D9-4BA6-8D5E-9292A8D9A7DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5D4525C-85A4-4018-BCAC-FF025401C92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5D4525C-85A4-4018-BCAC-FF025401C92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5D4525C-85A4-4018-BCAC-FF025401C92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5D4525C-85A4-4018-BCAC-FF025401C92C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA48C391-6392-4494-BC00-2DCE85059EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FA48C391-6392-4494-BC00-2DCE85059EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA48C391-6392-4494-BC00-2DCE85059EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -115,6 +111,10 @@ Global
 		{9A163265-34C3-411C-9ACF-29286703252C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A163265-34C3-411C-9ACF-29286703252C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A163265-34C3-411C-9ACF-29286703252C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19E138A9-34C6-42A6-ACA5-A2AE597383C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E138A9-34C6-42A6-ACA5-A2AE597383C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E138A9-34C6-42A6-ACA5-A2AE597383C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E138A9-34C6-42A6-ACA5-A2AE597383C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -134,11 +134,11 @@ Global
 		{F8BCC789-3558-4D8A-A905-6E0A5BAD281F} = {0364F410-1642-44A5-BC3B-086BFA360FF3}
 		{2F16915C-25AE-4EC8-A6D6-00663D3C2824} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 		{CA4601D3-C7D9-4BA6-8D5E-9292A8D9A7DE} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
-		{A5D4525C-85A4-4018-BCAC-FF025401C92C} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 		{FA48C391-6392-4494-BC00-2DCE85059EAB} = {BCCE0C7A-D7B7-4128-BFB9-6EE58A765608}
 		{B5B9C955-13F8-4155-ADAE-BBC17BB200DF} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 		{0A59D7C0-8B88-46BE-9ED4-855E3C629C6D} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 		{9A163265-34C3-411C-9ACF-29286703252C} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
+		{19E138A9-34C6-42A6-ACA5-A2AE597383C0} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {705729DF-3C54-456A-AFEE-77A76E5F9727}
