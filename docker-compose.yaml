@@ -1,7 +1,34 @@
 version: "3.9"
 
 services:
+  postgres:
+    image: postgres
+    container_name: transaction-postgres-company
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    restart: always
+    networks: 
+      - network-main-company
 
+  pgadmin:
+    image: dpage/pgadmin4
+    user: root
+    container_name: transaction-pgadmin-company
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "otavio@otavio.com"
+      PGADMIN_DEFAULT_PASSWORD: "1234"
+    ports:
+      - "8080:80"
+    restart: always
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    networks:
+      - network-main-company
 networks:
-  network-main:
+  network-main-company:
 	 driver: bridge
