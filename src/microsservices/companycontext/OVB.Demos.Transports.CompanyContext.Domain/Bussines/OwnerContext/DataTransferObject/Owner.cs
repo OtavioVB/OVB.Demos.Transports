@@ -8,7 +8,7 @@ namespace OVB.Demos.Transports.CompanyContext.Domain.Bussines.OwnerContext.DataT
 public sealed class Owner : DataTransferObjectBase.All
 {
     public Owner(Guid identifier, Guid correlationIdentifier, string sourcePlatform, string name, string lastName, string language, string country,
-        string documentType, string documentContent, OwnerDocument[] ownerDocuments, List<OwnerPhone> ownerPhones, DateTime createdAt, DateTime updatedAt) 
+        string documentType, string documentContent, OwnerDocument[] ownerDocuments, DateTime createdAt, DateTime updatedAt) 
         : base(identifier, correlationIdentifier, sourcePlatform, createdAt, updatedAt)
     {
         OwnerDocuments = ownerDocuments;
@@ -18,7 +18,6 @@ public sealed class Owner : DataTransferObjectBase.All
         Language = language;
         DocumentType = documentType; 
         DocumentContent = documentContent;
-        OwnerPhones = ownerPhones;
     }
 
     #region Properties
@@ -38,10 +37,9 @@ public sealed class Owner : DataTransferObjectBase.All
     public Guid? CompanyIdentifier { get; set; }
     public Company? Company { get; set; }
 
-    public Guid? OwnerAuthenticationIdentifier { get; set; }
     public OwnerAuthentication? OwnerAuthentication { get; set; }
 
-    public List<OwnerPhone> OwnerPhones { get; set; }
+    public List<OwnerPhone>? OwnerPhones { get; set; }
 
     #endregion
 }

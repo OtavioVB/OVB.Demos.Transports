@@ -5,21 +5,26 @@ namespace OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.Dat
 
 public sealed class Company : DataTransferObjectBase.All
 {
-    public Company(Guid identifier, Guid correlationIdentifier, string sourcePlatform, string platformName, string nameReally, string cryptographyPrivateKey, string country,
-        string language, DateTime updatedAt, DateTime createdAt) : base(identifier, correlationIdentifier, sourcePlatform, createdAt, updatedAt)
+    public Company(Guid identifier, string documentType, string documentContent, CompanyDocument[] documents, string platformName, string nameReally,
+        string language, string country, Guid correlationIdentifier, string sourcePlatform, DateTime createdAt, DateTime updatedAt) 
+        : base(identifier, correlationIdentifier, sourcePlatform, createdAt, updatedAt)
     {
-        CryptographyPrivateKey = cryptographyPrivateKey;
+        DocumentType = documentType;
+        DocumentContent = documentContent;
         PlatformName = platformName;
-        NameReally = nameReally;
-        Country = country;
+        RealName = nameReally;
         Language = language;
+        Country = country;
+        Documents = documents;
     }
 
     #region Properties
 
+    public string DocumentType { get; set; }
+    public string DocumentContent { get; set; }
+    public CompanyDocument[] Documents { get; set; }
     public string PlatformName { get; set; }
-    public string NameReally { get; set; }
-    public string CryptographyPrivateKey { get; set; }
+    public string RealName { get; set; }
     public string Language { get; set; }
     public string Country { get; set; }
 
@@ -30,4 +35,16 @@ public sealed class Company : DataTransferObjectBase.All
     public List<Owner>? Owners { get; set; }
 
     #endregion
+}
+
+public sealed class CompanyDocument
+{
+    public CompanyDocument(string type, string content)
+    {
+        Type = type;
+        Content = content;
+    }
+
+    public string Type { get; set; }
+    public string Content { get; set; }
 }
