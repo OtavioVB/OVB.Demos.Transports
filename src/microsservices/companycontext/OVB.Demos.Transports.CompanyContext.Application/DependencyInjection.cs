@@ -11,13 +11,11 @@ public static class DependencyInjection
     {
         #region Management Error Messages
 
-        serviceCollection.AddSingleton<ManagementMessages<CompanyService>>((serviceProvider) =>
+        serviceCollection.AddSingleton((serviceProvider) =>
         {
             var managementMessages = new ManagementMessages<CompanyService>();
 
-            managementMessages.AddMessage("COM01", "PT-BR", TypeMessage.Error, "A companhia já possui um cadastramento no nosso sistema com as informações fornecidas.");
-            managementMessages.AddMessage("COM01", "EN-US", TypeMessage.Error, "The company has registration in our system with the information provided.");
-            managementMessages.AddMessage("COM01", "ES-ES", TypeMessage.Error, "La empresa ya cuenta con un registro en nuestro sistema con la información brindada");
+            managementMessages.AddMessage("COM01", "pt-br", TypeMessage.Error, "A companhia já possui um cadastramento no nosso sistema com as informações fornecidas.");
 
             return managementMessages;
         });
