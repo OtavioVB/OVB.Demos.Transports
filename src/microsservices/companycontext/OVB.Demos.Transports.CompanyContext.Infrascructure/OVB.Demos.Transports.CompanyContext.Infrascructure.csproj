@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="MongoDb\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\..\..\libs\OVB.Demos.Libraries.EntityFrameworkCore\OVB.Demos.Libraries.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\OVB.Demos.Transports.CompanyContext.Domain\OVB.Demos.Transports.CompanyContext.Domain.csproj" />
   </ItemGroup>

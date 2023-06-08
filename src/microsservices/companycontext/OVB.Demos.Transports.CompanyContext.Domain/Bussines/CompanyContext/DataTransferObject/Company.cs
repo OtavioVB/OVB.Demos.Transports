@@ -1,4 +1,5 @@
 ﻿using OVB.Demos.Libraries.Domain;
+using OVB.Demos.Transports.CompanyContext.Domain.Bussines.OwnerContext.DataTransferObject;
 
 namespace OVB.Demos.Transports.CompanyContext.Domain.Bussines.CompanyContext.DataTransferObject;
 
@@ -14,12 +15,19 @@ public sealed class Company : DataTransferObjectBase.All
         Language = language;
     }
 
+    #region Properties
+
     public string PlatformName { get; set; }
     public string NameReally { get; set; }
     public string CryptographyPrivateKey { get; set; }
     public string Language { get; set; }
     public string Country { get; set; }
 
-    public static Company Empty { get; set; } = new Company(Guid.Empty, Guid.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty,
-        DateTime.UnixEpoch, DateTime.UnixEpoch);
+    #endregion
+
+    #region Relationships
+
+    public List<Owner>? Owners { get; set; }
+
+    #endregion
 }
