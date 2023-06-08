@@ -14,9 +14,9 @@ public readonly struct ErrorResponse
 
 public readonly struct ErrorMessage
 {
-    public ErrorMessage(string type, string message, string code)
+    public ErrorMessage(TypeMessage type, string message, string code)
     {
-        Type = type;
+        Type = type.ToString();
         Message = message;
         Code = code;
     }
@@ -24,4 +24,11 @@ public readonly struct ErrorMessage
     public string Type { get; init; }
     public string Message { get; init; }
     public string Code { get; init; }
+}
+
+public enum TypeMessage
+{
+    Error = 1,
+    Information = 2,
+    Successfull = 3,
 }

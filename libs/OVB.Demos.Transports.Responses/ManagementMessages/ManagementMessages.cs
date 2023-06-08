@@ -13,7 +13,7 @@ public sealed class ManagementMessages<TEntity>
         Messages = new Dictionary<string, IDictionary<string, ErrorMessage>>();    
     }
 
-    public void AddMessage(string code, string language, ErrorMessage errorMessage)
+    public void AddMessage(string code, string language, TypeMessage typeMessage, string message)
     {
         const string Exists = "This message for this code and language exists.";
 
@@ -25,7 +25,7 @@ public sealed class ManagementMessages<TEntity>
         if(errorCodeMessageExists == false)
             Messages.Add(code, new Dictionary<string, ErrorMessage>());
 
-        Messages[code].Add(language, errorMessage);
+        Messages[code].Add(language, new ErrorMessage(typeMessage, message, code));
     }
 
     public ErrorMessage GetErrorMessageByLanguage(string code, string language)
