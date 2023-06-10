@@ -14,7 +14,7 @@ public static class DependencyInjection
     {
         #region Management Error Messages
 
-        serviceCollection.AddSingleton((serviceProvider) =>
+        serviceCollection.AddSingleton<ManagementMessages<Country>>((serviceProvider) =>
         {
             var managementMessages = new ManagementMessages<Country>();
             var messageCode = nameof(Country).ToUpper().Substring(0, 3);
@@ -24,11 +24,23 @@ public static class DependencyInjection
             return managementMessages;
         });
 
+        serviceCollection.AddSingleton<ManagementMessages<Language>>((serviceProvider) =>
+        {
+            var managementMessages = new ManagementMessages<Language>();
+            var messageCode = nameof(Language).ToUpper().Substring(0, 3);
+
+            managementMessages.AddMessage($"{messageCode}01", Languages.BrazilPortuguese, TypeMessage.Error, "A língua precisa estar em conformidade com as aceitas pelo software.");
+
+            return managementMessages;
+        });
+
+
         #endregion
 
         #region Validations
 
         serviceCollection.AddSingleton<IValidation<Country>, CountryValidation>();
+        serviceCollection.AddSingleton<IValidation<Language>, LanguageValidation>();
 
         #endregion
 

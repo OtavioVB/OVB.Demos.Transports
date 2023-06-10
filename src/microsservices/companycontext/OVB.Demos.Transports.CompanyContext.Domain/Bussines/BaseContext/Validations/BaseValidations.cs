@@ -39,9 +39,9 @@ public static class BaseValidations
         private readonly string _messageTextCode;
         private readonly ManagementMessages<Language> _languageManagementMessages;
 
-        public LanguageValidation(string messageTextCode, ManagementMessages<Language> languageManagementMessages)
+        public LanguageValidation(ManagementMessages<Language> languageManagementMessages)
         {
-            _messageTextCode = messageTextCode;
+            _messageTextCode = nameof(Language).ToUpper().Substring(0, 3);
             _languageManagementMessages = languageManagementMessages;
         }
 
