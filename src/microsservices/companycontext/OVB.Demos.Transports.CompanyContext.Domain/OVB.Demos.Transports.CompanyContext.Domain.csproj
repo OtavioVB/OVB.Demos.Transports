@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\libs\OVB.Demos.Libraries.Cryptography\OVB.Demos.Libraries.Cryptography.csproj" />
     <ProjectReference Include="..\..\..\..\libs\OVB.Demos.Libraries.Domain\OVB.Demos.Libraries.Domain.csproj" />
+    <ProjectReference Include="..\..\..\..\libs\OVB.Demos.Transports.Responses\OVB.Demos.Transports.Responses.csproj" />
   </ItemGroup>
 
   <ItemGroup>

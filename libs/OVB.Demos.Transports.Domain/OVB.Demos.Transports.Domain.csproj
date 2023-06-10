@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\OVB.Demos.Transports.Responses\OVB.Demos.Transports.Responses.csproj" />
-  </ItemGroup>
-
 </Project>

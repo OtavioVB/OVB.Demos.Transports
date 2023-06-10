@@ -36,16 +36,21 @@ public sealed class Company : DataTransferObjectBase.All
     public List<Owner>? Owners { get; set; }
 
     #endregion
+
+    #region Static
+    public static Company Empty { get; set; } = new Company(Guid.Empty, string.Empty, string.Empty, new CompanyDocument(new (string Type, string Content)[0]),
+        string.Empty, string.Empty, string.Empty, string.Empty, Guid.Empty, string.Empty, DateTime.UnixEpoch, DateTime.UnixEpoch);
+    #endregion
 }
 
 [ProtoContract()]
 public sealed class CompanyDocument
 {
-    public CompanyDocument((string Type, string Content) documents)
+    public CompanyDocument((string Type, string Content)[] documents)
     {
         Documents = documents;  
     }
 
     [ProtoMember(1)]
-    public (string Type, string Content) Documents { get; set; }
+    public (string Type, string Content)[] Documents { get; set; }
 }
