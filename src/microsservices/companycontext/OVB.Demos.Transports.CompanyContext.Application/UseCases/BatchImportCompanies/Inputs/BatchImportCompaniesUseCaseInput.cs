@@ -15,12 +15,12 @@ public readonly struct BatchImportCompaniesCompanyInfoUseCaseInput
     public BatchImportCompaniesCompanyInfoUseCaseInput(string name, string platformName, string document, string documentType, string language, 
         string country, BatchImportCompaniesOwnerInfoUseCaseInput[] owners)
     {
-        Name = name;
-        PlatformName = platformName;
-        Document = document;
-        DocumentType = documentType;
-        Language = language;
-        Country = country;
+        Name = name.Trim();
+        PlatformName = platformName.Trim();
+        Document = document.Trim();
+        DocumentType = documentType.Trim();
+        Language = language.Trim();
+        Country = country.Trim();
         Owners = owners;
     }
 
@@ -41,12 +41,12 @@ public readonly struct BatchImportCompaniesOwnerInfoUseCaseInput
         string language, string country)
     {
         Phones = phones;
-        Name = name;
-        LastName = lastName;
-        Document = document;
-        DocumentType = documentType;
-        Language = language;
-        Country = country;
+        Name = name.Trim();
+        LastName = lastName.Trim();
+        Document = document.Trim();
+        DocumentType = documentType.Trim();
+        Language = language.Trim();
+        Country = country.Trim();
     }
 
     public BatchImportCompaniesOwnerPhoneInfoUseCaseInput[] Phones { get; init; }
@@ -62,9 +62,9 @@ public readonly struct BatchImportCompaniesOwnerPhoneInfoUseCaseInput
 {
     public BatchImportCompaniesOwnerPhoneInfoUseCaseInput(string ddi, string ddd, string phone)
     {
-        Ddi = ddi;
-        Ddd = ddd;
-        Phone = phone;
+        Ddi = ddi.Trim();
+        Ddd = ddd.Trim();
+        Phone = phone.Trim();
     }
 
     public string Ddi { get; init; }

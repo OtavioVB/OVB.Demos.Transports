@@ -9,11 +9,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\libs\OVB.Demos.Libraries.Cryptography\OVB.Demos.Libraries.Cryptography.csproj" />
     <ProjectReference Include="..\..\..\..\libs\OVB.Demos.Libraries.Domain\OVB.Demos.Libraries.Domain.csproj" />
+    <ProjectReference Include="..\..\..\..\libs\OVB.Demos.Transports.Domain\OVB.Demos.Transports.Domain.csproj" />
     <ProjectReference Include="..\..\..\..\libs\OVB.Demos.Transports.Responses\OVB.Demos.Transports.Responses.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.5.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="protobuf-net.Core" Version="3.2.26" />
   </ItemGroup>

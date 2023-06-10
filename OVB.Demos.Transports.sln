@@ -55,7 +55,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Libraries.Applica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Transports.Responses", "libs\OVB.Demos.Transports.Responses\OVB.Demos.Transports.Responses.csproj", "{9A163265-34C3-411C-9ACF-29286703252C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Libraries.Protobuf.Serializator", "libs\OVB.Demos.Libraries.Protobuf.Serializator\OVB.Demos.Libraries.Protobuf.Serializator.csproj", "{19E138A9-34C6-42A6-ACA5-A2AE597383C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Libraries.Protobuf.Serializator", "libs\OVB.Demos.Libraries.Protobuf.Serializator\OVB.Demos.Libraries.Protobuf.Serializator.csproj", "{19E138A9-34C6-42A6-ACA5-A2AE597383C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.Domain", "libs\OVB.Demos.Transports.Domain\OVB.Demos.Transports.Domain.csproj", "{778B4896-78D5-4C82-8B34-A676AD5F42A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,6 +117,10 @@ Global
 		{19E138A9-34C6-42A6-ACA5-A2AE597383C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19E138A9-34C6-42A6-ACA5-A2AE597383C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19E138A9-34C6-42A6-ACA5-A2AE597383C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{778B4896-78D5-4C82-8B34-A676AD5F42A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{778B4896-78D5-4C82-8B34-A676AD5F42A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{778B4896-78D5-4C82-8B34-A676AD5F42A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{778B4896-78D5-4C82-8B34-A676AD5F42A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -139,6 +145,7 @@ Global
 		{0A59D7C0-8B88-46BE-9ED4-855E3C629C6D} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 		{9A163265-34C3-411C-9ACF-29286703252C} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 		{19E138A9-34C6-42A6-ACA5-A2AE597383C0} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
+		{778B4896-78D5-4C82-8B34-A676AD5F42A6} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {705729DF-3C54-456A-AFEE-77A76E5F9727}
