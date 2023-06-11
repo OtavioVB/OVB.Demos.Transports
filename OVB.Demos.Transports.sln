@@ -49,15 +49,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Libraries.Cryptog
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Transports.CompanyContext.WebGrpc", "src\microsservices\companycontext\OVB.Demos.Transports.CompanyContext.WebGrpc\OVB.Demos.Transports.CompanyContext.WebGrpc.csproj", "{FA48C391-6392-4494-BC00-2DCE85059EAB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Libraries.MongoDb", "libs\OVB.Demos.Libraries.MongoDb\OVB.Demos.Libraries.MongoDb.csproj", "{B5B9C955-13F8-4155-ADAE-BBC17BB200DF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Libraries.Application", "libs\OVB.Demos.Libraries.Application\OVB.Demos.Libraries.Application.csproj", "{0A59D7C0-8B88-46BE-9ED4-855E3C629C6D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Transports.Responses", "libs\OVB.Demos.Transports.Responses\OVB.Demos.Transports.Responses.csproj", "{9A163265-34C3-411C-9ACF-29286703252C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OVB.Demos.Libraries.Protobuf.Serializator", "libs\OVB.Demos.Libraries.Protobuf.Serializator\OVB.Demos.Libraries.Protobuf.Serializator.csproj", "{19E138A9-34C6-42A6-ACA5-A2AE597383C0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.Domain", "libs\OVB.Demos.Transports.Domain\OVB.Demos.Transports.Domain.csproj", "{778B4896-78D5-4C82-8B34-A676AD5F42A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,10 +97,6 @@ Global
 		{FA48C391-6392-4494-BC00-2DCE85059EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA48C391-6392-4494-BC00-2DCE85059EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA48C391-6392-4494-BC00-2DCE85059EAB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B5B9C955-13F8-4155-ADAE-BBC17BB200DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5B9C955-13F8-4155-ADAE-BBC17BB200DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5B9C955-13F8-4155-ADAE-BBC17BB200DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5B9C955-13F8-4155-ADAE-BBC17BB200DF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A59D7C0-8B88-46BE-9ED4-855E3C629C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A59D7C0-8B88-46BE-9ED4-855E3C629C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A59D7C0-8B88-46BE-9ED4-855E3C629C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -117,10 +109,6 @@ Global
 		{19E138A9-34C6-42A6-ACA5-A2AE597383C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19E138A9-34C6-42A6-ACA5-A2AE597383C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19E138A9-34C6-42A6-ACA5-A2AE597383C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{778B4896-78D5-4C82-8B34-A676AD5F42A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{778B4896-78D5-4C82-8B34-A676AD5F42A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{778B4896-78D5-4C82-8B34-A676AD5F42A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{778B4896-78D5-4C82-8B34-A676AD5F42A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,11 +129,9 @@ Global
 		{2F16915C-25AE-4EC8-A6D6-00663D3C2824} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 		{CA4601D3-C7D9-4BA6-8D5E-9292A8D9A7DE} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 		{FA48C391-6392-4494-BC00-2DCE85059EAB} = {BCCE0C7A-D7B7-4128-BFB9-6EE58A765608}
-		{B5B9C955-13F8-4155-ADAE-BBC17BB200DF} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 		{0A59D7C0-8B88-46BE-9ED4-855E3C629C6D} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 		{9A163265-34C3-411C-9ACF-29286703252C} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 		{19E138A9-34C6-42A6-ACA5-A2AE597383C0} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
-		{778B4896-78D5-4C82-8B34-A676AD5F42A6} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {705729DF-3C54-456A-AFEE-77A76E5F9727}
