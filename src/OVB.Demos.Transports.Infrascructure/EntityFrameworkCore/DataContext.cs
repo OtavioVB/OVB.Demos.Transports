@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OVB.Demos.Transports.Domain.CompanyContext.DataTransferObject;
+using OVB.Demos.Transports.Infrascructure.EntityFrameworkCore.Mappings;
 
 namespace OVB.Demos.Transports.Infrascructure.EntityFrameworkCore;
 
