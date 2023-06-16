@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.Applic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.Domain", "src\OVB.Demos.Transports.Domain\OVB.Demos.Transports.Domain.csproj", "{215D9151-C42C-44F9-B743-4E4488064A64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OVB.Demos.Transports.Domain.Results", "libs\OVB.Demos.Transports.Domain.Results\OVB.Demos.Transports.Domain.Results.csproj", "{1E786B52-25E9-48F9-B30B-1088D0921D72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{215D9151-C42C-44F9-B743-4E4488064A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{215D9151-C42C-44F9-B743-4E4488064A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{215D9151-C42C-44F9-B743-4E4488064A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E786B52-25E9-48F9-B30B-1088D0921D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E786B52-25E9-48F9-B30B-1088D0921D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E786B52-25E9-48F9-B30B-1088D0921D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E786B52-25E9-48F9-B30B-1088D0921D72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{A125EDDC-E60F-4540-904C-E21CD2EC5477} = {6FF2B839-0F9C-400A-BB95-0FD7BE184571}
 		{D7D2A3FD-AAC9-41F3-9430-58FC1C1D4429} = {6FF2B839-0F9C-400A-BB95-0FD7BE184571}
 		{215D9151-C42C-44F9-B743-4E4488064A64} = {6FF2B839-0F9C-400A-BB95-0FD7BE184571}
+		{1E786B52-25E9-48F9-B30B-1088D0921D72} = {466A62C0-60DF-48DE-9895-CE1A599B5D71}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {705729DF-3C54-456A-AFEE-77A76E5F9727}
