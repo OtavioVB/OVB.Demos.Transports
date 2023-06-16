@@ -16,4 +16,6 @@ public record Company
     public string RealName { get; init; }
     public string Cnpj { get; init; }
     public DateTime CreatedAt { get; init; }
+
+    public static string ToUpper = nameof(Company).ToUpper();
 }
