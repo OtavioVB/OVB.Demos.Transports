@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OVB.Demos.Transports.Domain.CompanyContext.DataTransferObject;
 
-namespace OVB.Demos.Transports.Infrascructure;
+namespace OVB.Demos.Transports.Infrascructure.EntityFrameworkCore;
 
 public sealed class DataContext : DbContext
 {
