@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using OVB.Demos.Transports.Application.Services.Business.CompanyContext;
+using OVB.Demos.Transports.Application.Services.Business.CompanyContext.Interfaces;
 using OVB.Demos.Transports.Application.Services.OutOfBusiness.DeveloperContext;
 using OVB.Demos.Transports.Application.Services.OutOfBusiness.DeveloperContext.Interfaces;
 using OVB.Demos.Transports.Application.Services.OutOfBusiness.FileContext;
@@ -18,6 +20,7 @@ public static class DependencyInjection
 
         serviceCollection.AddSingleton<IFileService, FileService>();
         serviceCollection.AddSingleton<IAuthorizationService, AuthorizationService>();
+        serviceCollection.AddScoped<ICompanyService, CompanyService>();
 
         #endregion
 
