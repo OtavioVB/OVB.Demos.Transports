@@ -1,4 +1,6 @@
 
+using OVB.Demos.Transports.Infrascructure;
+
 namespace OVB.Demos.Transports.WebApi;
 
 public static class Program
@@ -7,9 +9,13 @@ public static class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        #region Infrascructure Configuration
+
+        builder.Services.AddInfrascructureDependenciesConfiguration(builder.Configuration["ConnectionString"]);
+
+        #endregion
+
         builder.Services.AddControllers();
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
 
         var app = builder.Build();
 
