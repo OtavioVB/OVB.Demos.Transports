@@ -6,6 +6,6 @@ namespace OVB.Demos.Transports.Application.Services.Business.CompanyContext.Inte
 
 public interface ICompanyService
 {
-    public Task<ICommandResult<IEnumerable<CompanyBaseModel>>> ConvertFileToCompanyBaseModelServiceAsync(
+    public Task<ICommandResult<IReadOnlyCollection<CompanyBaseModel>>> ConvertFileToCompanyBaseModelServiceAsync(
         ConvertFileToCompanyBaseModelServiceInput input, CancellationToken cancellationToken);
 }

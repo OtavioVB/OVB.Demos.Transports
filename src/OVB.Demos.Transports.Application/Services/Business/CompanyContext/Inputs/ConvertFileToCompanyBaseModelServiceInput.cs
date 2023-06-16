@@ -4,10 +4,14 @@ namespace OVB.Demos.Transports.Application.Services.Business.CompanyContext.Inpu
 
 public readonly struct ConvertFileToCompanyBaseModelServiceInput
 {
-    public ConvertFileToCompanyBaseModelServiceInput(IFormFile file)
+    public ConvertFileToCompanyBaseModelServiceInput(IFormFile file, char separatorCharacter, string path)
     {
         File = file;
+        SeparatorCharacter = separatorCharacter;
+        Path = path;
     }
 
     public IFormFile File { get; init; }
+    public char SeparatorCharacter { get; init; }
+    public string Path { get; init; }
 }
