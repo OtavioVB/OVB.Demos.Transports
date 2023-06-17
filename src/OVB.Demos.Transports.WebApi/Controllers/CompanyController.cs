@@ -26,7 +26,8 @@ public class CompanyController : ControllerBase
     [AllowAnonymous]
     public async Task<IActionResult> ImportBatchCompaniesAsync(
         [FromHeader] string authorizationCode,
-        [FromServices] IUseCase<ImportBatchCompaniesUseCaseInput, ICommandResult<ImportBatchCompaniesUseCaseSuccessfullResponse>> useCase,
+        [FromServices] IUseCase<ImportBatchCompaniesUseCaseInput, ICommandCompleteResult<ImportBatchCompaniesUseCaseSuccessfullResponse, 
+            ImportBatchCompaniesUseCaseErrorfullResponse>> useCase,
         [FromForm] IFormFile file,
         CancellationToken cancellationToken)
     {

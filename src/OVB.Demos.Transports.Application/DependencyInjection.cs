@@ -26,7 +26,7 @@ public static class DependencyInjection
 
         #region Use Cases Configuration
 
-        serviceCollection.AddScoped<IUseCase<ImportBatchCompaniesUseCaseInput, ICommandResult<ImportBatchCompaniesUseCaseSuccessfullResponse>>,
+        serviceCollection.AddScoped<IUseCase<ImportBatchCompaniesUseCaseInput, ICommandCompleteResult<ImportBatchCompaniesUseCaseSuccessfullResponse,ImportBatchCompaniesUseCaseErrorfullResponse>>,
             ImportBatchCompaniesUseCase>();
 
         #endregion

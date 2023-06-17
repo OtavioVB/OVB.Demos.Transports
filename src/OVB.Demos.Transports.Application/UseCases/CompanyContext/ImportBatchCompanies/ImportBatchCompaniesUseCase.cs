@@ -80,6 +80,7 @@ public sealed class ImportBatchCompaniesUseCase : IUseCase<ImportBatchCompaniesU
 
             var hasAnyInvalid = false;
             var companiesError = new List<CompanyBatchInformation>();
+            var companiesSuccessfullInformation = new List<ImportBatchCompaniesCompanyInformationUseCaseSuccessfullResponse>();
 
             foreach (var company in fileDecomposeServiceResponse.GetSuccessfullCommandResult())
             {
@@ -99,6 +100,16 @@ public sealed class ImportBatchCompaniesUseCase : IUseCase<ImportBatchCompaniesU
                             cnpj: company.Cnpj,
                             notifications: (IReadOnlyCollection<NotificationMessage>)createCompanyServiceResponse.GetErrorCommandResult()));
                 }
+                else if (createCompanyServiceResponse.GetResultState() == StateResult.SuccessfullResult && hasAnyInvalid == false)
+                {
+                    var createCompanyServiceSuccessfullResponse = createCompanyServiceResponse.GetSuccessfullCommandResult();
+                    companiesSuccessfullInformation.Add(
+                        item: new ImportBatchCompaniesCompanyInformationUseCaseSuccessfullResponse(
+                            identifier: createCompanyServiceSuccessfullResponse.Identifier,
+                            cnpj: createCompanyServiceSuccessfullResponse.Cnpj,
+                            createdAt: createCompanyServiceSuccessfullResponse.CreatedAt,
+                            notifications: createCompanyServiceSuccessfullResponse.Notifications));
+                }
             }
 
             if (hasAnyInvalid == true)
@@ -110,7 +121,9 @@ public sealed class ImportBatchCompaniesUseCase : IUseCase<ImportBatchCompaniesU
             }
 
             response.AddSuccessfullResponse(
-                new ImportBatchCompaniesUseCaseSuccessfullResponse());
+                new ImportBatchCompaniesUseCaseSuccessfullResponse(
+                    companiesInformation: companiesSuccessfullInformation,
+                    notifications: messages));
             return (true, response);
         }, cancellationToken: cancellationToken);
     }
