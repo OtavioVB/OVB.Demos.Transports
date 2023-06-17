@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿#pragma warning disable CS1998 // O método assíncrono não possui operadores 'await' e será executado de forma síncrona
+
+using Microsoft.AspNetCore.Http;
 using OVB.Demos.Transports.Domain.Results;
 using OVB.Demos.Transports.Domain.Results.ErrorResults;
 using OVB.Demos.Transports.Domain.Results.Interfaces;
@@ -32,3 +34,5 @@ public sealed class FileService : IFileService
     private bool VerifyEndsWithExtensionName(IFormFile file, string extension)
         => file.FileName.EndsWith(extension);
 }
+
+#pragma warning restore CS1998 // O método assíncrono não possui operadores 'await' e será executado de forma síncrona

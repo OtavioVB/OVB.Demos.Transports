@@ -12,6 +12,15 @@ public readonly struct NotificationMessage
     public string Code { get; init; }
     public string Message { get; init; }
     public string Type { get; init; }
+
+    public static NotificationMessage BuildSuccessfullMessage(string code, string message)
+        => new NotificationMessage(code, message, TypeMessage.Successfull);
+
+    public static NotificationMessage BuildErrorMessage(string code, string message)
+        => new NotificationMessage(code, message, TypeMessage.Error);
+
+    public static NotificationMessage BuildInformationMessage(string code, string message)
+        => new NotificationMessage(code, message, TypeMessage.Information);
 }
 
 public enum TypeMessage
