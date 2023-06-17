@@ -6,6 +6,8 @@ using OVB.Demos.Transports.Infrascructure.EntityFrameworkCore.Repositories;
 using OVB.Demos.Transports.Infrascructure.EntityFrameworkCore.Repositories.Base;
 using OVB.Demos.Transports.Infrascructure.EntityFrameworkCore.Repositories.Base.Interfaces;
 using OVB.Demos.Transports.Infrascructure.EntityFrameworkCore.Repositories.Extensions;
+using OVB.Demos.Transports.Infrascructure.EntityFrameworkCore.UnitOfWork;
+using OVB.Demos.Transports.Infrascructure.EntityFrameworkCore.UnitOfWork.Interfaces;
 
 namespace OVB.Demos.Transports.Infrascructure;
 
@@ -26,10 +28,18 @@ public static class DependencyInjection
 
         #endregion
 
+        #region Unit Of Work
+
+        serviceCollection.AddScoped<IUnitOfWork, DefaultUnitOfWork>();
+
+        #endregion
+
         #region Repositories
+
         serviceCollection.AddScoped<IBaseRepository<Company>, CompanyRepository>();
         serviceCollection.AddScoped<BaseRepository<Company>, CompanyRepository>();
         serviceCollection.AddScoped<IExtensionCompanyRepository, CompanyRepository>();
+
         #endregion
 
         return serviceCollection;

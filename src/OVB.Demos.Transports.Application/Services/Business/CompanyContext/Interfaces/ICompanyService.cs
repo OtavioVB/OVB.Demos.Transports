@@ -9,5 +9,5 @@ public interface ICompanyService
 {
     public Task<ICommandResult<IReadOnlyCollection<CompanyBaseModel>>> ConvertFileToCompanyBaseModelServiceAsync(
         ConvertFileToCompanyBaseModelServiceInput input, CancellationToken cancellationToken);
-    public Task<CreateCompanyServiceSuccessfullResponse> CreateCompanyServiceAsync(CreateCompanyServiceInput input, CancellationToken cancellationToken);
+    public Task<ICommandResult<CreateCompanyServiceSuccessfullResponse>> CreateCompanyServiceAsync(CreateCompanyServiceInput input, CancellationToken cancellationToken);
 }

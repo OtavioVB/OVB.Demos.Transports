@@ -9,11 +9,11 @@ public readonly struct CreateCompanyServiceInput
         RealName = realName;
         PlatformName = platformName;
         Cnpj = cnpj;
-        this.typeCompany = typeCompany;
+        TypeCompany = typeCompany;
     }
 
     public string RealName { get; init; }
     public string PlatformName { get; init; }
     public string Cnpj { get; init; }
-    public TypeCompany typeCompany { get; init; }
+    public TypeCompany TypeCompany { get; init; }
 }
