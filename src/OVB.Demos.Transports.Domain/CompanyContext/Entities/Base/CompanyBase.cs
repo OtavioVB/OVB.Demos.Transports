@@ -31,7 +31,7 @@ public abstract class CompanyBase : ICompanyContract
         Type = type;
     }
 
-    public ICommandResult<IEnumerable<NotificationMessage>> CreateCompany(string platformName, string realName, string cnpj)
+    public virtual ICommandResult<IEnumerable<NotificationMessage>> CreateCompany(string platformName, string realName, string cnpj)
     {
         var platformNameValueObject = PlatformName.Build(platformName);
         var nameValueObject = Name.Build(realName);

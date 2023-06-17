@@ -51,8 +51,7 @@ public static class CompanyValueObjects
             Value = value;
         }
 
-        public static int MaxLength = 255;
-        public static int MinLength = 3;
+        public static int UniqueLength = 14;
 
         public override string ToString()
         => Value;
