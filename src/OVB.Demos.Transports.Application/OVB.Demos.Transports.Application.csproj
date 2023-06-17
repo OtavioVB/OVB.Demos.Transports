@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\libs\OVB.Demos.Transports.Domain.Results\OVB.Demos.Transports.Domain.Results.csproj" />
+    <ProjectReference Include="..\OVB.Demos.Transports.Domain\OVB.Demos.Transports.Domain.csproj" />
+    <ProjectReference Include="..\OVB.Demos.Transports.Infrascructure\OVB.Demos.Transports.Infrascructure.csproj" />
   </ItemGroup>
 
 </Project>

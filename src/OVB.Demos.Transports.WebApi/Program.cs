@@ -1,4 +1,5 @@
 
+using OVB.Demos.Transports.Application;
 using OVB.Demos.Transports.Domain;
 using OVB.Demos.Transports.Infrascructure;
 
@@ -19,6 +20,12 @@ public static class Program
         #region Infrascructure Configuration
 
         builder.Services.AddInfrascructureDependenciesConfiguration(builder.Configuration["ConnectionString"]);
+
+        #endregion
+
+        #region Application Configuration
+
+        builder.Services.AddApplicationDependenciesConfiguration();
 
         #endregion
 

@@ -14,23 +14,23 @@ public sealed class DefaultUnitOfWork : IUnitOfWork
     public Task AddChangesToTransaction(CancellationToken cancellationToken)
         => _dataContext.SaveChangesAsync(cancellationToken);
 
-    public async Task<TResult> ExecuteUnitOfWorkAsync<TResult>(Func<CancellationToken, (bool ExecuteUnitOfWork, TResult Result)> handler, CancellationToken cancellationToken)
+    public async Task<TResult> ExecuteUnitOfWorkAsync<TResult>(Func<CancellationToken, Task<(bool ExecuteUnitOfWork, TResult Result)>> handler, CancellationToken cancellationToken)
     {
         var transaction = await _dataContext.Database.BeginTransactionAsync();
 
         var handlerResponse = await handler(cancellationToken);
 
-        if (handlerResponse.HasDone == false)
+        if (handlerResponse.ExecuteUnitOfWork == false)
         {
             await transaction.RollbackAsync(cancellationToken);
             await transaction.DisposeAsync();
-            return handlerResponse.Output;
+            return handlerResponse.Result;
         }
         else
         {
             await transaction.CommitAsync(cancellationToken);
             await transaction.DisposeAsync();
-            return handlerResponse.Output;
+            return handlerResponse.Result;
         }
     }
 }
