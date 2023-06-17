@@ -15,6 +15,9 @@ public static class CompanyValueObjects
 
         public static int MaxLength = 32;
         public static int MinLength = 3;
+        public static bool IsFixedLength = false;
+        public static string DatabaseColumnType = "VARCHAR";
+
 
         public override string ToString()
             => Value;
@@ -34,6 +37,8 @@ public static class CompanyValueObjects
 
         public static int MaxLength = 255;
         public static int MinLength = 3;
+        public static bool IsFixedLength = false;
+        public static string DatabaseColumnType = "VARCHAR";
 
         public override string ToString()
             => Value;
@@ -52,6 +57,8 @@ public static class CompanyValueObjects
         }
 
         public static int UniqueLength = 14;
+        public static string DatabaseColumnType = "CHAR";
+        public static bool IsFixedLength = true;
 
         public override string ToString()
         => Value;
