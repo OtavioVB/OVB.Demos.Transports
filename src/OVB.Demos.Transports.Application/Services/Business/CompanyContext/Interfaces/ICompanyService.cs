@@ -9,5 +9,12 @@ public interface ICompanyService
 {
     public Task<ICommandResult<IReadOnlyCollection<CompanyBaseModel>>> ConvertFileToCompanyBaseModelServiceAsync(
         ConvertFileToCompanyBaseModelServiceInput input, CancellationToken cancellationToken);
-    public Task<ICommandResult<CreateCompanyServiceSuccessfullResponse>> CreateCompanyServiceAsync(CreateCompanyServiceInput input, CancellationToken cancellationToken);
+    public Task<ICommandResult<CreateCompanyServiceSuccessfullResponse>> CreateCompanyServiceAsync(
+        CreateCompanyServiceInput input, 
+        CancellationToken cancellationToken);
+    public Task<ICommandResult<CreateCompanyServiceSuccessfullResponse>> CreateCompanyServiceWithoutDomainValidationAsync(
+        CreateCompanyServiceInput input,
+        CancellationToken cancellationToken);
+    public ICommandResult<CreateCompanyValidationServiceSuccessfullResponse> CreateCompanyValidationServiceAsync(
+        CreateCompanyServiceInput input);
 }
