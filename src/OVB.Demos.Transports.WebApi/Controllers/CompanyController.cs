@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OVB.Demos.Transports.Application.UseCases.CompanyContext.ImportBatchCompanies.Inputs;
 using OVB.Demos.Transports.Application.UseCases.CompanyContext.ImportBatchCompanies.Outputs;
+using OVB.Demos.Transports.Application.UseCases.CompanyContext.ParallelImportBatchCompanies.Inputs;
+using OVB.Demos.Transports.Application.UseCases.CompanyContext.ParallelImportBatchCompanies.Outputs;
 using OVB.Demos.Transports.Application.UseCases.Interfaces;
 using OVB.Demos.Transports.Domain.Results;
 using OVB.Demos.Transports.Domain.Results.Interfaces;
@@ -14,7 +16,7 @@ public class CompanyController : ControllerBase
 {
     [HttpPost]
     [Consumes("multipart/form-data")]
-    [RequestSizeLimit(104_858)]
+    [RequestSizeLimit(102_400)] // 100kb
     [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(string))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
     [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(string))]
@@ -48,7 +50,7 @@ public class CompanyController : ControllerBase
 
     [HttpPost]
     [Consumes("multipart/form-data")]
-    [RequestSizeLimit(104_858)]
+    [RequestSizeLimit(102_400)] // 100kb
     [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(string))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
     [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(string))]
@@ -60,8 +62,8 @@ public class CompanyController : ControllerBase
     [AllowAnonymous]
     public async Task<IActionResult> ParallelImportBatchCompaniesAsync(
         [FromHeader] string authorizationCode,
-        [FromServices] IUseCase<ImportBatchCompaniesUseCaseInput, ICommandCompleteResult<ImportBatchCompaniesUseCaseSuccessfullResponse,
-            ImportBatchCompaniesUseCaseErrorfullResponse>> useCase,
+        [FromServices] IUseCase<ParallelImportBatchCompaniesUseCaseInput, ICommandCompleteResult<ParallelImportBatchCompaniesUseCaseSuccessfullResponse,
+            ParallelImportBatchCompaniesUseCaseErrorfullResponse>> useCase,
         [FromForm] IFormFile file,
         CancellationToken cancellationToken)
     {
@@ -69,8 +71,8 @@ public class CompanyController : ControllerBase
             return StatusCode(StatusCodes.Status422UnprocessableEntity, "The state of model to request is not valid.");
 
         var useCaseResponse = await useCase.ExecuteUseCaseAsync(
-            input: new ImportBatchCompaniesUseCaseInput(
-                authorization: authorizationCode,
+            input: new ParallelImportBatchCompaniesUseCaseInput(
+                developerAuthorizationCode: authorizationCode,
                 file: file),
             cancellationToken: cancellationToken);
 

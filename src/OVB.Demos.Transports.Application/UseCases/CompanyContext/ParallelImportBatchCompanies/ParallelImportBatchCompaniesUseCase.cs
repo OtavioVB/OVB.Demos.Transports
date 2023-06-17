@@ -71,7 +71,9 @@ public sealed class ParallelImportBatchCompaniesUseCase : IUseCase<ParallelImpor
             }
             messages.AddRange(fileServiceResponse.GetSuccessfullCommandResult());
 
-            using (var fileStream = File.Create(Path.Combine(Environment.CurrentDirectory, "archives_temp", $"{Guid.NewGuid().ToString("N")}.csv")))
+
+            var archiveName = $"{Guid.NewGuid().ToString("N")}.csv";
+            using (var fileStream = File.Create(Path.Combine(Environment.CurrentDirectory, "archives_temp", archiveName)))
             {
                 await input.File.CopyToAsync(fileStream);
                 await fileStream.FlushAsync(cancellationToken);
@@ -81,7 +83,7 @@ public sealed class ParallelImportBatchCompaniesUseCase : IUseCase<ParallelImpor
             var companiesError = new ConcurrentBag<ParallelCompanyBatchInformation>();
             var companiesSuccessfullInformation = new ConcurrentBag<ValidCompanyInformation>();
 
-            Parallel.ForEach(File.ReadLines(Path.Combine(Environment.CurrentDirectory, "archives_temp", $"{Guid.NewGuid().ToString("N")}.csv")), (line) =>
+            Parallel.ForEach(File.ReadLines(Path.Combine(Environment.CurrentDirectory, "archives_temp", archiveName)), (line) =>
             {
                 var splittedLine = line.Split(",");
                 var companyServiceResponse = _companyService.CreateCompanyValidationServiceAsync(

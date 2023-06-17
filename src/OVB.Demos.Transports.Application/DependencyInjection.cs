@@ -7,6 +7,9 @@ using OVB.Demos.Transports.Application.Services.OutOfBusiness.FileContext;
 using OVB.Demos.Transports.Application.UseCases.CompanyContext.ImportBatchCompanies;
 using OVB.Demos.Transports.Application.UseCases.CompanyContext.ImportBatchCompanies.Inputs;
 using OVB.Demos.Transports.Application.UseCases.CompanyContext.ImportBatchCompanies.Outputs;
+using OVB.Demos.Transports.Application.UseCases.CompanyContext.ParallelImportBatchCompanies;
+using OVB.Demos.Transports.Application.UseCases.CompanyContext.ParallelImportBatchCompanies.Inputs;
+using OVB.Demos.Transports.Application.UseCases.CompanyContext.ParallelImportBatchCompanies.Outputs;
 using OVB.Demos.Transports.Application.UseCases.Interfaces;
 using OVB.Demos.Transports.Domain.Results.Interfaces;
 
@@ -26,8 +29,12 @@ public static class DependencyInjection
 
         #region Use Cases Configuration
 
-        serviceCollection.AddScoped<IUseCase<ImportBatchCompaniesUseCaseInput, ICommandCompleteResult<ImportBatchCompaniesUseCaseSuccessfullResponse,ImportBatchCompaniesUseCaseErrorfullResponse>>,
+        serviceCollection.AddScoped<IUseCase<ImportBatchCompaniesUseCaseInput, ICommandCompleteResult<ImportBatchCompaniesUseCaseSuccessfullResponse,
+            ImportBatchCompaniesUseCaseErrorfullResponse>>,
             ImportBatchCompaniesUseCase>();
+        serviceCollection.AddScoped<IUseCase<ParallelImportBatchCompaniesUseCaseInput, ICommandCompleteResult<ParallelImportBatchCompaniesUseCaseSuccessfullResponse, 
+            ParallelImportBatchCompaniesUseCaseErrorfullResponse>>,
+            ParallelImportBatchCompaniesUseCase>();
 
         #endregion
 
