@@ -1,5 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OVB.Demos.Transports.Application.UseCases.CompanyContext.ImportBatchCompanies.Inputs;
+using OVB.Demos.Transports.Application.UseCases.CompanyContext.ImportBatchCompanies.Outputs;
+using OVB.Demos.Transports.Application.UseCases.Interfaces;
+using OVB.Demos.Transports.Domain.Results;
+using OVB.Demos.Transports.Domain.Results.Interfaces;
 
 namespace OVB.Demos.Transports.WebApi.Controllers;
 
@@ -20,9 +25,23 @@ public class CompanyController : ControllerBase
     [Route("BatchImport")]
     [AllowAnonymous]
     public async Task<IActionResult> ImportBatchCompaniesAsync(
+        [FromHeader] string authorizationCode,
+        [FromServices] IUseCase<ImportBatchCompaniesUseCaseInput, ICommandResult<ImportBatchCompaniesUseCaseSuccessfullResponse>> useCase,
         [FromForm] IFormFile file,
         CancellationToken cancellationToken)
     {
-        return await Task.FromResult(StatusCode(StatusCodes.Status503ServiceUnavailable));
+        if (ModelState.IsValid == false)
+            return StatusCode(StatusCodes.Status422UnprocessableEntity, "The state of model to request is not valid.");
+
+        var useCaseResponse = await useCase.ExecuteUseCaseAsync(
+            input: new ImportBatchCompaniesUseCaseInput(
+                authorization: authorizationCode,
+                file: file),
+            cancellationToken: cancellationToken);
+
+        if (useCaseResponse.GetResultState() == StateResult.SuccessfullResult)
+            return StatusCode(StatusCodes.Status201Created, useCaseResponse.GetSuccessfullCommandResult());
+        else
+            return StatusCode(StatusCodes.Status400BadRequest, useCaseResponse.GetErrorCommandResult());
     }
 }

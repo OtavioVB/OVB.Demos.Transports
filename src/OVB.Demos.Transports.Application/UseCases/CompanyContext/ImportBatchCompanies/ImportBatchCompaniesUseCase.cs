@@ -60,11 +60,13 @@ public sealed class ImportBatchCompaniesUseCase : IUseCase<ImportBatchCompaniesU
             }
             messages.AddRange(fileServiceResponse.GetSuccessfullCommandResult());
 
+            var archiveName = $"{Guid.NewGuid().ToString("N")}.csv";
             var fileDecomposeServiceResponse = await _companyService.ConvertFileToCompanyBaseModelServiceAsync(
-                input: new ConvertFileToCompanyBaseModelServiceInput(input.File, ',', Path.Combine(Environment.CurrentDirectory, "archives_temp", $"{Guid.NewGuid().ToString("N")}.csv")),
+                input: new ConvertFileToCompanyBaseModelServiceInput(input.File, ',', Path.Combine(Environment.CurrentDirectory, "archives_temp", archiveName)),
                 cancellationToken: cancellationToken);
             if (fileDecomposeServiceResponse.GetResultState() == StateResult.ErrorResult)
             {
+                File.Delete(Path.Combine(Environment.CurrentDirectory, "archives_temp", archiveName));
                 response.AddErrorResponse(fileDecomposeServiceResponse.GetErrorCommandResult());
                 return (false, response);
             }
@@ -86,6 +88,9 @@ public sealed class ImportBatchCompaniesUseCase : IUseCase<ImportBatchCompaniesU
                 }
             }
 
+            File.Delete(Path.Combine(Environment.CurrentDirectory, "archives_temp", archiveName));
+            response.AddSuccessfullResponse(
+                new ImportBatchCompaniesUseCaseSuccessfullResponse());
             return (true, response);
         }, cancellationToken: cancellationToken);
     }

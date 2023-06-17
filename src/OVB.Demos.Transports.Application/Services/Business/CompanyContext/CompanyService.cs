@@ -40,9 +40,11 @@ public sealed class CompanyService : ICompanyService
     {
         var response = new CommandResult<IReadOnlyCollection<CompanyBaseModel>>();
 
-        using var fileStream = File.Create(input.Path);
-        await input.File.CopyToAsync(fileStream);
-        await fileStream.FlushAsync(cancellationToken);
+        using (var fileStream = File.Create(input.Path))
+        {
+            await input.File.CopyToAsync(fileStream);
+            await fileStream.FlushAsync(cancellationToken);
+        }
 
         var companies = new List<CompanyBaseModel>();
 
@@ -52,7 +54,8 @@ public sealed class CompanyService : ICompanyService
             var lineInformationSplitted = line.Split(input.SeparatorCharacter);
             companies.Add(new CompanyBaseModel(lineInformationSplitted[0], lineInformationSplitted[1], lineInformationSplitted[2]));
         }
-            
+
+        response.AddSuccessfullResponse(companies);
         return response;
     }
 

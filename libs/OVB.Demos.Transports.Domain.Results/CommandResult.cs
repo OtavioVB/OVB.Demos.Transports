@@ -19,12 +19,10 @@ public sealed class CommandResult<TSuccessfullEntity> : ICommandResult<TSuccessf
 
     public void AddSuccessfullResponse(TSuccessfullEntity entity)
     {
-        if (Result != null)
-            throw new Exception(ResultSetted);
-
         if (State != StateResult.Unavailable)
             throw new Exception(InvalidState);
 
+        State = StateResult.SuccessfullResult;
         Result = entity;
     }
 
@@ -36,6 +34,7 @@ public sealed class CommandResult<TSuccessfullEntity> : ICommandResult<TSuccessf
         if (State != StateResult.Unavailable)
             throw new Exception(InvalidState);
 
+        State = StateResult.ErrorResult;
         NotificationMessages = notificationMessages;
     }
 
