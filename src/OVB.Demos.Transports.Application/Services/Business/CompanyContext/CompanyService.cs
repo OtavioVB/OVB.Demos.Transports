@@ -55,6 +55,7 @@ public sealed class CompanyService : ICompanyService
             companies.Add(new CompanyBaseModel(lineInformationSplitted[0], lineInformationSplitted[1], lineInformationSplitted[2]));
         }
 
+        File.Delete(input.Path));
         response.AddSuccessfullResponse(companies);
         return response;
     }

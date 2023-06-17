@@ -13,7 +13,8 @@ using OVB.Demos.Transports.Infrascructure.EntityFrameworkCore.UnitOfWork.Interfa
 
 namespace OVB.Demos.Transports.Application.UseCases.CompanyContext.ImportBatchCompanies;
 
-public sealed class ImportBatchCompaniesUseCase : IUseCase<ImportBatchCompaniesUseCaseInput, ICommandResult<ImportBatchCompaniesUseCaseSuccessfullResponse>>
+public sealed class ImportBatchCompaniesUseCase : IUseCase<ImportBatchCompaniesUseCaseInput, 
+    ICommandCompleteResult<ImportBatchCompaniesUseCaseSuccessfullResponse, ImportBatchCompaniesUseCaseErrorfullResponse>>
 {
     private readonly IFileService _fileService;
     private readonly IAuthorizationService _authorizationService;
@@ -32,12 +33,13 @@ public sealed class ImportBatchCompaniesUseCase : IUseCase<ImportBatchCompaniesU
         _unitOfWork = unitOfWork;
     }
 
-    public Task<ICommandResult<ImportBatchCompaniesUseCaseSuccessfullResponse>> ExecuteUseCaseAsync(
+    public Task<ICommandCompleteResult<ImportBatchCompaniesUseCaseSuccessfullResponse, ImportBatchCompaniesUseCaseErrorfullResponse>> ExecuteUseCaseAsync(
         ImportBatchCompaniesUseCaseInput input, CancellationToken cancellationToken)
     {
-        return _unitOfWork.ExecuteUnitOfWorkAsync<ICommandResult<ImportBatchCompaniesUseCaseSuccessfullResponse>>(handler: async (cancellationToken) =>
+        return _unitOfWork.ExecuteUnitOfWorkAsync<ICommandCompleteResult<ImportBatchCompaniesUseCaseSuccessfullResponse, ImportBatchCompaniesUseCaseErrorfullResponse>>(
+            handler: async (cancellationToken) =>
         {
-            var response = new CommandResult<ImportBatchCompaniesUseCaseSuccessfullResponse>();
+            var response = new CommandCompleteResult<ImportBatchCompaniesUseCaseSuccessfullResponse, ImportBatchCompaniesUseCaseErrorfullResponse>();
             var messages = new List<NotificationMessage>();
 
             var authorizationServiceResponse = await _authorizationService.DeveloperAuthorizeToMakeChanges(
@@ -45,7 +47,10 @@ public sealed class ImportBatchCompaniesUseCase : IUseCase<ImportBatchCompaniesU
                 cancellationToken: cancellationToken);
             if (authorizationServiceResponse.GetResultState() == StateResult.ErrorResult)
             {
-                response.AddErrorResponse(authorizationServiceResponse.GetErrorCommandResult());
+                response.AddErrorResponse(
+                    notificationMessages: new ImportBatchCompaniesUseCaseErrorfullResponse(
+                        companiesError: null,
+                        generalNotificationMessages: (IReadOnlyCollection<NotificationMessage>)authorizationServiceResponse.GetErrorCommandResult()));
                 return (false, response);
             }
             messages.AddRange(authorizationServiceResponse.GetSuccessfullCommandResult());
@@ -55,21 +60,26 @@ public sealed class ImportBatchCompaniesUseCase : IUseCase<ImportBatchCompaniesU
                 cancellationToken: cancellationToken);
             if (fileServiceResponse.GetResultState() == StateResult.ErrorResult)
             {
-                response.AddErrorResponse(fileServiceResponse.GetErrorCommandResult());
+                response.AddErrorResponse(notificationMessages: new ImportBatchCompaniesUseCaseErrorfullResponse(
+                        companiesError: null,
+                        generalNotificationMessages: (IReadOnlyCollection<NotificationMessage>)fileServiceResponse.GetErrorCommandResult()));
                 return (false, response);
             }
             messages.AddRange(fileServiceResponse.GetSuccessfullCommandResult());
 
-            var archiveName = $"{Guid.NewGuid().ToString("N")}.csv";
             var fileDecomposeServiceResponse = await _companyService.ConvertFileToCompanyBaseModelServiceAsync(
-                input: new ConvertFileToCompanyBaseModelServiceInput(input.File, ',', Path.Combine(Environment.CurrentDirectory, "archives_temp", archiveName)),
+                input: new ConvertFileToCompanyBaseModelServiceInput(input.File, ',', Path.Combine(Environment.CurrentDirectory, "archives_temp", $"{Guid.NewGuid().ToString("N")}.csv")),
                 cancellationToken: cancellationToken);
             if (fileDecomposeServiceResponse.GetResultState() == StateResult.ErrorResult)
             {
-                File.Delete(Path.Combine(Environment.CurrentDirectory, "archives_temp", archiveName));
-                response.AddErrorResponse(fileDecomposeServiceResponse.GetErrorCommandResult());
+                response.AddErrorResponse(notificationMessages: new ImportBatchCompaniesUseCaseErrorfullResponse(
+                        companiesError: null,
+                        generalNotificationMessages: (IReadOnlyCollection<NotificationMessage>)fileDecomposeServiceResponse.GetErrorCommandResult()));
                 return (false, response);
             }
+
+            var hasAnyInvalid = false;
+            var companiesError = new List<CompanyBatchInformation>();
 
             foreach (var company in fileDecomposeServiceResponse.GetSuccessfullCommandResult())
             {
@@ -83,12 +93,22 @@ public sealed class ImportBatchCompaniesUseCase : IUseCase<ImportBatchCompaniesU
 
                 if (createCompanyServiceResponse.GetResultState() == StateResult.ErrorResult)
                 {
-                    response.AddErrorResponse(createCompanyServiceResponse.GetErrorCommandResult());
-                    return (false, response);
+                    hasAnyInvalid = true;
+                    companiesError.Add(
+                        item: new CompanyBatchInformation(
+                            cnpj: company.Cnpj,
+                            notifications: (IReadOnlyCollection<NotificationMessage>)createCompanyServiceResponse.GetErrorCommandResult()));
                 }
             }
 
-            File.Delete(Path.Combine(Environment.CurrentDirectory, "archives_temp", archiveName));
+            if (hasAnyInvalid == true)
+            {
+                response.AddErrorResponse(new ImportBatchCompaniesUseCaseErrorfullResponse(
+                    companiesError: companiesError,
+                    generalNotificationMessages: messages));
+                return (false, response);
+            }
+
             response.AddSuccessfullResponse(
                 new ImportBatchCompaniesUseCaseSuccessfullResponse());
             return (true, response);

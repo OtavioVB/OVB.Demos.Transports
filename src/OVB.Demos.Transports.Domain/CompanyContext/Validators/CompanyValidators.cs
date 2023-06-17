@@ -35,7 +35,7 @@ public static class CompanyValidators
     {
         public CnpjValidator()
         {
-            RuleFor(p => p.ToString().Length).NotEqual(Cnpj.UniqueLength)
+            RuleFor(p => p.ToString().Length).Equal(Cnpj.UniqueLength)
                 .WithMessage($"The cnpj needs to has only {Cnpj.UniqueLength} characters.")
                 .WithErrorCode("CCNPJ01");
         }
