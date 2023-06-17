@@ -1,5 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using OVB.Demos.Transports.Domain.CompanyContext.Builders;
+using OVB.Demos.Transports.Domain.CompanyContext.Builders.Interfaces;
 using OVB.Demos.Transports.Domain.CompanyContext.Validators;
 using OVB.Demos.Transports.Domain.CompanyContext.ValueObjects;
 
@@ -16,7 +18,7 @@ public static class DependencyInjection
         #endregion
 
         #region Builders
-
+        serviceCollection.AddSingleton<IBuilderCompany, BuilderCompany>();
         #endregion
 
         return serviceCollection;

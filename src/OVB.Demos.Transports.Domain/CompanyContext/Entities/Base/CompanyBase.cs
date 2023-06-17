@@ -5,15 +5,19 @@ using OVB.Demos.Transports.Domain.Results.ErrorResults;
 using OVB.Demos.Transports.Domain.Results.Interfaces;
 using FluentValidation;
 using OVB.Demos.Transports.Domain.Results;
+using OVB.Demos.Transports.Domain.CompanyContext.DataTransferObject;
 
 namespace OVB.Demos.Transports.Domain.CompanyContext.Entities.Base;
 
 public abstract class CompanyBase : ICompanyContract
 {
+    protected Guid Identifier { get; private set; }
     protected Name Name { get; private set; }
     protected PlatformName PlatformName { get; private set; }
     protected Cnpj Cnpj { get; private set; }
+    protected DateTime CreatedAt { get; private set; }
     public TypeCompany Type { get; init; }
+    private State State { get; set; }
 
     protected readonly AbstractValidator<Name> _nameValidator;
     protected readonly AbstractValidator<PlatformName> _platformNameValidator;
@@ -29,6 +33,7 @@ public abstract class CompanyBase : ICompanyContract
         _platformNameValidator = platformNameValidator;
         _cnpjValidator = cnpjValidator;
         Type = type;
+        State = State.Unavailable;
     }
 
     public virtual ICommandResult<IEnumerable<NotificationMessage>> CreateCompany(string platformName, string realName, string cnpj)
@@ -38,8 +43,32 @@ public abstract class CompanyBase : ICompanyContract
         var cnpjValueObject = Cnpj.Build(cnpj);
 
         var validationResult = ValidationStrategy(nameValueObject, platformNameValueObject, cnpjValueObject);
+        
+        if(validationResult.HasAnyInvalid == false)
+            SetCompanyBasicCredentials(Guid.NewGuid(), platformNameValueObject, cnpjValueObject, nameValueObject, DateTime.UtcNow);
 
         return BuildCommandResult(validationResult.HasAnyInvalid, validationResult.Notifications);
+    }
+
+    public Company GetCompanyDataTransferObject()
+    {
+        if (State != State.Available)
+            throw new Exception("Is not possible to get company in an invalid state.");
+
+        return new Company(Identifier, PlatformName.ToString(), Name.ToString(), Cnpj.ToString(), Type.ToString().ToCharArray()[0], CreatedAt);
+    }
+
+    protected void SetCompanyBasicCredentials(Guid identifier, PlatformName platformName, Cnpj cnpj, Name name, DateTime createdAt)
+    {
+        if (State != State.Unavailable)
+            throw new Exception("Is not possible to set company basic credentials in an invalid state.");
+
+            Identifier = identifier;
+        PlatformName = platformName;
+        Cnpj = cnpj;
+        Name = name;
+        CreatedAt = createdAt;
+        State = State.Available;
     }
 
     protected (bool HasAnyInvalid, List<NotificationMessage> Notifications) ValidationStrategy(Name name, PlatformName platformName, Cnpj cnpj)
