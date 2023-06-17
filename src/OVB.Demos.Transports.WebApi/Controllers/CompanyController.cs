@@ -9,6 +9,7 @@ public class CompanyController : ControllerBase
 {
     [HttpPost]
     [Consumes("multipart/form-data")]
+    [RequestSizeLimit(104_858)] // 100kb
     [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(string))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
     [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(string))]

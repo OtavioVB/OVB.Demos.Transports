@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using OVB.Demos.Transports.Domain.CompanyContext.DataTransferObject;
-using OVB.Demos.Transports.Domain.CompanyContext.ValueObjects;
 using static OVB.Demos.Transports.Domain.CompanyContext.ValueObjects.CompanyValueObjects;
 
 namespace OVB.Demos.Transports.Infrascructure.EntityFrameworkCore.Mappings;
