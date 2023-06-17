@@ -1,6 +1,7 @@
 ﻿using OVB.Demos.Transports.Application.Services.Business.CompanyContext.Inputs;
 using OVB.Demos.Transports.Application.Services.Business.CompanyContext.Interfaces;
 using OVB.Demos.Transports.Application.Services.Business.CompanyContext.Outputs;
+using OVB.Demos.Transports.Domain.CompanyContext.Builders.Interfaces;
 using OVB.Demos.Transports.Domain.Results;
 using OVB.Demos.Transports.Domain.Results.Interfaces;
 
@@ -8,6 +9,8 @@ namespace OVB.Demos.Transports.Application.Services.Business.CompanyContext;
 
 public sealed class CompanyService : ICompanyService
 {
+    private readonly IBuilderCompany _builderCompany;
+
     public async Task<ICommandResult<IReadOnlyCollection<CompanyBaseModel>>> ConvertFileToCompanyBaseModelServiceAsync(
         ConvertFileToCompanyBaseModelServiceInput input, CancellationToken cancellationToken)
     {
@@ -27,5 +30,10 @@ public sealed class CompanyService : ICompanyService
         }
             
         return response;
+    }
+
+    public Task<CreateCompanyServiceSuccessfullResponse> CreateCompanyServiceAsync(CreateCompanyServiceInput input, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
     }
 }

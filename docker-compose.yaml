@@ -15,7 +15,7 @@ services:
   transactionpgadmincompany:
     image: dpage/pgadmin4
     user: root
-    container_name:  transactionpgadmincompany
+    container_name: transactionpgadmincompany
     environment:
       PGADMIN_DEFAULT_EMAIL: "otavio@otavio.com"
       PGADMIN_DEFAULT_PASSWORD: "1234"
