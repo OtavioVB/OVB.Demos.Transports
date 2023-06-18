@@ -32,9 +32,6 @@ public static class DependencyInjection
         serviceCollection.AddScoped<IUseCase<ImportBatchCompaniesUseCaseInput, ICommandCompleteResult<ImportBatchCompaniesUseCaseSuccessfullResponse,
             ImportBatchCompaniesUseCaseErrorfullResponse>>,
             ImportBatchCompaniesUseCase>();
-        serviceCollection.AddScoped<IUseCase<ParallelImportBatchCompaniesUseCaseInput, ICommandCompleteResult<ParallelImportBatchCompaniesUseCaseSuccessfullResponse, 
-            ParallelImportBatchCompaniesUseCaseErrorfullResponse>>,
-            ParallelImportBatchCompaniesUseCase>();
 
         #endregion
 

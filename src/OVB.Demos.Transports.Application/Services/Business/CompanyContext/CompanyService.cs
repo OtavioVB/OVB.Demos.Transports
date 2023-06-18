@@ -60,32 +60,6 @@ public sealed class CompanyService : ICompanyService
         return response;
     }
 
-    public async Task<ICommandResult<IReadOnlyCollection<CompanyBaseModel>>> ValidateAllCompaniesPresentInFileAsync(
-        ConvertFileToCompanyBaseModelServiceInput input, CancellationToken cancellationToken)
-    {
-        var response = new CommandResult<IReadOnlyCollection<CompanyBaseModel>>();
-
-        using (var fileStream = File.Create(input.Path))
-        {
-            await input.File.CopyToAsync(fileStream);
-            await fileStream.FlushAsync(cancellationToken);
-        }
-
-        var companies = new List<CompanyBaseModel>();
-
-        var lines = await File.ReadAllLinesAsync(input.Path, cancellationToken);
-        foreach (var line in lines)
-        {
-            var lineInformationSplitted = line.Split(input.SeparatorCharacter);
-            companies.Add(new CompanyBaseModel(lineInformationSplitted[0], lineInformationSplitted[1], lineInformationSplitted[2]));
-        }
-
-        File.Delete(input.Path);
-        response.AddSuccessfullResponse(companies);
-        return response;
-    }
-
-
     /// <summary>
     /// Create Unique Company Service
     /// </summary>
@@ -112,56 +86,6 @@ public sealed class CompanyService : ICompanyService
         }
 
         var companyDataTransferObject = companyDomain.GetCompanyDataTransferObject();
-        await _companyBaseRepository.AddAsync(companyDataTransferObject, cancellationToken);
-        await _unitOfWork.AddChangesToTransaction(cancellationToken);
-
-        response.AddSuccessfullResponse(
-            entity: new CreateCompanyServiceSuccessfullResponse(
-                notifications: messages,
-                identifier: companyDataTransferObject.Identifier,
-                cnpj: companyDataTransferObject.Cnpj,
-                createdAt: companyDataTransferObject.CreatedAt));
-        return response;
-    }
-
-    public ICommandResult<CreateCompanyValidationServiceSuccessfullResponse> CreateCompanyValidationServiceAsync(
-        CreateCompanyServiceInput input)
-    {
-        var response = new CommandResult<CreateCompanyValidationServiceSuccessfullResponse>();
-        var messages = new List<NotificationMessage>();
-
-        var companyDomain = _builderCompany.BuildCompanyContractAccordingToHisType(input.TypeCompany);
-        var createCompanyDomainCommandResult = companyDomain.CreateCompany(input.PlatformName, input.RealName, input.Cnpj);
-        if (createCompanyDomainCommandResult.GetResultState() == StateResult.ErrorResult)
-        {
-            response.AddErrorResponse(createCompanyDomainCommandResult.GetErrorCommandResult());
-            return response;
-        }
-
-        response.AddSuccessfullResponse(
-            entity: new CreateCompanyValidationServiceSuccessfullResponse(
-                name: input.RealName,
-                platformName: input.PlatformName,
-                cnpj: input.Cnpj, 
-                notifications: messages));
-        return response;
-    }
-
-    public async Task<ICommandResult<CreateCompanyServiceSuccessfullResponse>> CreateCompanyServiceWithoutDomainValidationAsync(
-        CreateCompanyServiceInput input, CancellationToken cancellationToken)
-    {
-        var response = new CommandResult<CreateCompanyServiceSuccessfullResponse>();
-        var messages = new List<NotificationMessage>();
-
-        var existsInDatabase = await _extensionCompanyRepository.VerifyEntityExistsByCnpjAsync(input.Cnpj, cancellationToken);
-        if (existsInDatabase == true)
-        {
-            messages.Add(CompanyExists);
-            response.AddErrorResponse(messages);
-            return response;
-        }
-
-        var companyDataTransferObject = new Company(Guid.NewGuid(), input.PlatformName, input.RealName, input.Cnpj, (char)(int)input.TypeCompany, DateTime.UtcNow);
         await _companyBaseRepository.AddAsync(companyDataTransferObject, cancellationToken);
         await _unitOfWork.AddChangesToTransaction(cancellationToken);
 
